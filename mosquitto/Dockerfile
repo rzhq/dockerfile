@@ -11,6 +11,7 @@ RUN apk upgrade --update && \
     && \
     mkdir -p /mosquitto/config /mosquitto/data /mosquitto/log && \
     cp /etc/mosquitto/mosquitto.conf /mosquitto/config && \
+    chown -R mosquitto:mosquitto /mosquitto
 
 VOLUME ["/mosquitto/config", "/mosquitto/data", "/mosquitto/log"]
 
