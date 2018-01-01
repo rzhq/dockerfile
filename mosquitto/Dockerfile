@@ -13,5 +13,9 @@ RUN apk upgrade --update && \
     cp /etc/mosquitto/mosquitto.conf /mosquitto/config && \
     chown -R mosquitto:mosquitto /mosquitto
 
+VOLUME ["/mosquitto/config", "/mosquitto/data", "/mosquitto/log"]
+
+EXPOSE 1883
+
 ENTRYPOINT ["/entrypoint.sh"]
 CMD ["/mosquitto", "-c", "/mosquitto/config/mosquitto.conf"]
