@@ -1,0 +1,17 @@
+FROM alpine:3.6
+
+ENV MOSQUITTO_VERSION 1.4.12-r0
+
+COPY entrypoint.sh /
+
+RUN apk upgrade --update && \
+    apk --no-cache add \
+        mosquitto=$MOSQUITTO_VERSION \
+        mosquitto-clients=$MOSQUITTO_VERSION \
+    && \
+    mkdir -p /mosquitto/config /mosquitto/data /mosquitto/log && \
+    cp /etc/mosquitto/mosquitto.conf /mosquitto/config && \
+    chown -R mosquitto:mosquitto /mosquitto
+
+ENTRYPOINT ["/entrypoint.sh"]
+CMD ["/mosquitto", "-c", "/mosquitto/config/mosquitto.conf"]
