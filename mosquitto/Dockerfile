@@ -18,4 +18,5 @@ VOLUME ["/mosquitto/config", "/mosquitto/data", "/mosquitto/log"]
 EXPOSE 1883
 
 ENTRYPOINT ["/entrypoint.sh"]
-CMD ["/mosquitto", "-c", "/mosquitto/config/mosquitto.conf"]
+
+CMD ["mosquitto", "-c", "/mosquitto/config/mosquitto.conf"]
