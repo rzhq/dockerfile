@@ -9,6 +9,7 @@ RUN apk upgrade --update && \
         mosquitto=$MOSQUITTO_VERSION \
         mosquitto-clients=$MOSQUITTO_VERSION \
     && \
+    touch /var/log/mosquitto.log && \
     mkdir -p /mosquitto/config /mosquitto/data /mosquitto/log && \
     cp /etc/mosquitto/mosquitto.conf /mosquitto/config && \
     chown -R mosquitto:mosquitto /mosquitto
