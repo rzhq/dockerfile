@@ -11,11 +11,7 @@ RUN set -xe && \
     echo "<?php echo phpinfo(); ?>" > /var/www/html/index.php && \
     touch /var/log/lastlog
 
-COPY config/nginx.conf /etc/nginx/nginx.conf
-COPY config/fpm-pool.conf /etc/php7/php-fpm.d/php_custom.conf
-COPY config/php.ini /etc/php7/conf.d/php_custom.ini
-COPY config/supervisord.conf /etc/supervisord.conf
-COPY config/entrypoint.sh /entrypoint.sh
+COPY ./rootfs /
 
 WORKDIR /var/www/html
 
