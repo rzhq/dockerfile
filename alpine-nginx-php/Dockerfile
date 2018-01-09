@@ -8,6 +8,7 @@ RUN set -xe && \
         php7-mbstring php7-gd nginx supervisor curl \
     && \
     mkdir -p /var/www/html && \
+    mkdir /run/nginx/ && \
     echo "<?php echo phpinfo(); ?>" > /var/www/html/index.php && \
     touch /var/log/lastlog
 
