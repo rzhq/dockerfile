@@ -17,6 +17,7 @@ RUN set -xe && \
         php7-intl \
         php7-dom \
         php7-xmlreader \
+        php7-xmlwriter \
         php7-ctype \
         php7-mbstring \
         php7-gd \
